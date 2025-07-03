@@ -6,11 +6,22 @@ import org.example.restapi.dto.CourseResponse;
 import java.util.List;
 
 public interface CourseService {
-    /***
-     * ទាញព័ត៌មានវគ្គសិក្សាទាំងអស់
+    /**
+     * Get All Course Data
+     * @author Theara
+     * @return List<CourseResponse>
      */
-    List<CourseResponse> getCoursesByStatus(Boolean status);
-    List<CourseResponse> getCoursesByTitle(String title);
+    List<CourseResponse> getCourses(Boolean status, String title);
+    /**
+     * Get Course By Code
+     * @author Theara
+     * @return CourseResponse
+     */
     CourseResponse getCourseByCode(String code);
+    /**
+     * Get Course By id But That id is UUID
+     * @author Theara
+     * @return CourseResponse
+     */
     CourseResponse getCourseById(String id);
 }

@@ -19,18 +19,12 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CourseController {
     private final CourseService courseService;
-    @GetMapping("/filter/status")
-    public ResponseEntity<?> getCoursesByStatus(
-            @RequestParam Boolean status) {
-        return ResponseEntity.ok(courseService.getCoursesByStatus(status));
+    @GetMapping("/filter")
+    public ResponseEntity<?> getCoursesByStatusAndTitle(
+            @RequestParam(required = false, defaultValue = "true") Boolean status,
+            @RequestParam(required = false, defaultValue = "") String title) {
+        return ResponseEntity.ok(courseService.getCourses(status, title));
     }
-
-    @GetMapping("/filter/title")
-    public ResponseEntity<?> getCoursesByTitle(
-            @RequestParam String title) {
-        return ResponseEntity.ok(courseService.getCoursesByTitle(title));
-    }
-
 
     @GetMapping("/code")
     public ResponseEntity<?> getCourseByCode(@RequestParam String code) {
