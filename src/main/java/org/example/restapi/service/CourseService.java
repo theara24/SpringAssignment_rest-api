@@ -19,7 +19,7 @@ public interface CourseService {
      */
     CourseResponse getCourseByCode(String code);
     /**
-     * Get Course By id But That id is UUID
+     * Get Course By id
      * @author Theara
      * @return CourseResponse
      */
